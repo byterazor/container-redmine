@@ -31,7 +31,7 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/onozaty/redmine-vie
 
 #RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/mrliptontea/PurpleMine2.git
 
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair
 
 #RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/redmine_dark.git
 
