@@ -52,3 +52,5 @@ RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redm
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine-git-remote.git redmine_git_remote
 
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine_glossary.git
+
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/Intera/redmine_startpage.git
