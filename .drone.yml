@@ -1,0 +1,82 @@
+kind: pipeline
+type: kubernetes
+name: build-amd64
+platform:
+  arch: amd64
+node_selector:
+  kubernetes.io/arch: amd64
+
+volumes:
+- name: fedhq-ca-crt
+  config_map:
+    name: fedhq-ca-crt
+    default_mode: 420     # same as 644 in octal, or u+w,a+r
+    optional: false
+
+steps:
+  - name: build amd64
+    image: quay.io/buildah/stable
+    privileged: true
+    volumes:
+    - name: fedhq-ca-crt
+      path: /etc/ssl/certs2/
+    commands:
+      - scripts/setupEnvironment.sh
+      - buildah bud --network host -t "registry.cloud.federationhq.de/redmine:latest-amd64"  --arch amd64 .
+      - buildah push --all registry.cloud.federationhq.de/redmine:latest-amd64
+---
+kind: pipeline
+type: kubernetes
+name: build-arm64
+platform:
+  arch: arm64
+node_selector:
+  kubernetes.io/arch: arm64
+
+volumes:
+- name: fedhq-ca-crt
+  config_map:
+    name: fedhq-ca-crt
+    default_mode: 420     # same as 644 in octal, or u+w,a+r
+    optional: false
+
+steps:
+  - name: build arm64
+    image: quay.io/buildah/stable
+    privileged: true
+    volumes:
+    - name: fedhq-ca-crt
+      path: /etc/ssl/certs2/
+    commands:
+      - scripts/setupEnvironment.sh
+      - buildah bud --network host -t "registry.cloud.federationhq.de/redmine:latest-arm64" --arch arm64 .
+      - buildah push --all registry.cloud.federationhq.de/redmine:latest-arm64
+---
+kind: pipeline
+type: kubernetes
+name: push
+node_selector:
+  kubernetes.io/arch: amd64
+       
+volumes:
+- name: fedhq-ca-crt
+  config_map:
+    name: fedhq-ca-crt
+    default_mode: 420     # same as 644 in octal, or u+w,a+r
+    optional: false
+
+steps:
+  - name: push
+    image: quay.io/buildah/stable
+    privileged: true
+    volumes:
+    - name: fedhq-ca-crt
+      path: /etc/ssl/certs2/
+    commands:
+      - scripts/setupEnvironment.sh
+      - buildah manifest create redmine:latest registry.cloud.federationhq.de/redmine:latest-arm64 registry.cloud.federationhq.de/redmine:latest-amd64
+      - buildah manifest push --all redmine:latest docker://registry.cloud.federationhq.de/redmine:latest 
+      - buildah manifest rm redmine:latest
+depends_on:
+  - build-amd64
+  - build-arm64
