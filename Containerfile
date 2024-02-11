@@ -1,5 +1,6 @@
 FROM docker.io/redmine:5.1
 
+RUN echo "deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git
 RUN apt-get -qy build-dep ruby-hiredis
 
