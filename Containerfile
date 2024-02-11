@@ -54,5 +54,3 @@ RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazo
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine_glossary.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Intera/redmine_startpage.git
-
-RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/byterazors_redmine_footer.git
