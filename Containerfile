@@ -1,4 +1,4 @@
-FROM redmine:5.1
+FROM docker.io/redmine:5.1
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git
 
