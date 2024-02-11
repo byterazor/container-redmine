@@ -3,7 +3,7 @@ FROM docker.io/redmine:5.1
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/akpaevj/dashboard.git
+#RUN cd /usr/src/redmine/plugins;git clone https://github.com/akpaevj/dashboard.git
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/haru/redmine_wiki_extensions.git; cd redmine_wiki_extensions; git checkout 0.9.5
 
 RUN cd /usr/src/redmine/plugins;git clone -b stable https://www.github.com/alphanodes/additionals.git
