@@ -27,27 +27,27 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/redmica/redmica_ui_
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/onozaty/redmine-view-customize.git view_customize
 
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/haru/redmine_theme_changer.git
+#RUN cd /usr/src/redmine/plugins;git clone https://github.com/haru/redmine_theme_changer.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/mrliptontea/PurpleMine2.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/mrliptontea/PurpleMine2.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/redmine_dark.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/redmine_dark.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/RTMaterial.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/RTMaterial.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/jbbarth/redmine_theme_ministere.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/jbbarth/redmine_theme_ministere.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/Intera/redmine_theme_intera.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/Intera/redmine_theme_intera.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/knt419/material.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/knt419/material.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/letuankhoipm/qkit-redmine-rezii.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/letuankhoipm/qkit-redmine-rezii.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/makotokw/redmine-theme-gitmike.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/makotokw/redmine-theme-gitmike.git
 
-RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc/redmine-theme-dwarf-build.git
+#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc/redmine-theme-dwarf-build.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine-git-remote.git redmine_git_remote
 
