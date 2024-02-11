@@ -1,8 +1,6 @@
 FROM docker.io/redmine:5.1
 
-RUN echo "deb-src http://deb.debian.org/debian/ bookworm main contrib non-free non-free-firmware" >> /etc/apt/sources.list
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git
-RUN apt-get -qy build-dep ruby-hiredis
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/akpaevj/dashboard.git
@@ -54,5 +52,3 @@ RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine-git-remote.git redmine_git_remote
 
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine_glossary.git
-
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/Contargo/redmine_oidc.git
