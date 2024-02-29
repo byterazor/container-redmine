@@ -69,6 +69,11 @@ steps:
   - name: push
     image: quay.io/buildah/stable
     privileged: true
+    environment:
+      USERNAME:
+        from_secret: username
+      PASSWORD:
+        from_secret: password
     volumes:
     - name: fedhq-ca-crt
       path: /etc/ssl/certs2/
@@ -76,7 +81,24 @@ steps:
       - scripts/setupEnvironment.sh
       - buildah manifest create redmine:latest registry.cloud.federationhq.de/redmine:latest-arm64 registry.cloud.federationhq.de/redmine:latest-amd64
       - buildah manifest push --all redmine:latest docker://registry.cloud.federationhq.de/redmine:latest 
+      - buildah login -u $${USERNAME} -p $${PASSWORD} registry.hub.docker.com
+      - buildah manifest push --all fhem:latest docker://registry.hub.docker.com/byterazor/redmine:latest
       - buildah manifest rm redmine:latest
 depends_on:
   - build-amd64
   - build-arm64
+
+
+---
+kind: secret
+name: username
+get:
+  path: docker
+  name: username
+
+---
+kind: secret
+name: password
+get:
+  path: docker
+  name: secret
