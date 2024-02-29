@@ -63,5 +63,7 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/jrgarlick/redmine_t
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/ozguryazilimas/redmine_enforce_time_entry.git
 
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/eyp/redmine_spent_time.git
+
 COPY docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
