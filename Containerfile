@@ -56,3 +56,5 @@ RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazo
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Intera/redmine_startpage.git
 
 RUN cd /usr/src/redmine/plugins;git clone -b master https://github.com/xmera-circle/redmine_cookie_consent
+
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/redmine_hourglass.git; cd redmine_hourglass; git checkout v1.3.0-beta
