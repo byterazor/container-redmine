@@ -57,9 +57,9 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/Intera/redmine_star
 
 #RUN cd /usr/src/redmine/plugins;git clone -b master https://github.com/xmera-circle/redmine_cookie_consent
 
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/redmine_hourglass.git
+#RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/redmine_hourglass.git
 
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/jrgarlick/redmine_timesheet.git
+#RUN cd /usr/src/redmine/plugins;git clone https://github.com/jrgarlick/redmine_timesheet.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/eyp/redmine_spent_time.git
 
