@@ -1,6 +1,6 @@
 FROM docker.io/redmine:5.1
 
-RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git libffi-dev make gcc nodejs
+RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git libffi-dev make gcc nodejs graphviz
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git
 #RUN cd /usr/src/redmine/plugins;git clone https://github.com/akpaevj/dashboard.git
@@ -61,9 +61,9 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/jrgarlick/redmine_timesheet.git
 
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/ozguryazilimas/redmine_enforce_time_entry.git
-
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/eyp/redmine_spent_time.git
+
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/tckz/redmine-wiki_graphviz_plugin.git wiki_graphviz_plugin
 
 COPY docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
