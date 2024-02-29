@@ -60,3 +60,5 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/Intera/redmine_star
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/redmine_hourglass.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/jrgarlick/redmine_timesheet.git
+
+COPY docker-entrypoint.sh /
