@@ -1,6 +1,6 @@
 FROM docker.io/redmine:5.1
 
-RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git
+RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git libffi-dev make gcc
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git
 #RUN cd /usr/src/redmine/plugins;git clone https://github.com/akpaevj/dashboard.git
