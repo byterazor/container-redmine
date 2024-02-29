@@ -1,6 +1,7 @@
 FROM docker.io/redmine:5.1
 
-RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git libffi-dev make gcc nodejs
+RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git 
+#libffi-dev make gcc nodejs
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git
 #RUN cd /usr/src/redmine/plugins;git clone https://github.com/akpaevj/dashboard.git
@@ -55,6 +56,6 @@ RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazo
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/Intera/redmine_startpage.git
 
-RUN cd /usr/src/redmine/plugins;git clone -b master https://github.com/xmera-circle/redmine_cookie_consent
+#RUN cd /usr/src/redmine/plugins;git clone -b master https://github.com/xmera-circle/redmine_cookie_consent
 
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/redmine_hourglass.git; cd redmine_hourglass; git checkout v1.3.0-beta
+#RUN cd /usr/src/redmine/plugins;git clone https://github.com/hicknhack-software/redmine_hourglass.git; cd redmine_hourglass; git checkout v1.3.0-beta
