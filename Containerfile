@@ -69,5 +69,7 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/jkraemer/redmine_pe
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/alperenbozkurt/redmine_users_performance.git
 
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/smoreau/redmine_documents_short.git
+
 COPY docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
