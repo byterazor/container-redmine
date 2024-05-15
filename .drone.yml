@@ -5,6 +5,7 @@ platform:
   arch: amd64
 node_selector:
   kubernetes.io/arch: amd64
+  federationhq.de/location: Blumendorf
 
 volumes:
 - name: fedhq-ca-crt
@@ -32,6 +33,7 @@ platform:
   arch: arm64
 node_selector:
   kubernetes.io/arch: arm64
+  federationhq.de/location: Blumendorf
 
 volumes:
 - name: fedhq-ca-crt
@@ -57,6 +59,7 @@ type: kubernetes
 name: push
 node_selector:
   kubernetes.io/arch: amd64
+  federationhq.de/location: Blumendorf
        
 volumes:
 - name: fedhq-ca-crt
