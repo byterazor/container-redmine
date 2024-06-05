@@ -71,7 +71,5 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/alperenbozkurt/redm
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/smoreau/redmine_documents_short.git
 
-COPY redmine-ntfy /usr/src/redmine/plugins/
-
 COPY docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
