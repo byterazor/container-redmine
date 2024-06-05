@@ -10,7 +10,7 @@ RUN cd /usr/src/redmine/plugins;git clone -b stable https://www.github.com/alpha
 RUN cd /usr/src/redmine/plugins;git clone -b stable https://www.github.com/alphanodes/additional_tags.git
 
 RUN apt-get -qy install unzip
-RUN cd /usr/src/redmine/plugins;wget https://redmine-kanban.com/files/redmine_kanban.zip; unzip redmine_kanban.zip
+#RUN cd /usr/src/redmine/plugins;wget https://redmine-kanban.com/files/redmine_kanban.zip; unzip redmine_kanban.zip
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/mikitex70/redmine_drawio.git
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/alphanodes/redmine_messenger.git
@@ -70,6 +70,8 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/jkraemer/redmine_pe
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/alperenbozkurt/redmine_users_performance.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/smoreau/redmine_documents_short.git
+
+COPY redmine-ntfy /usr/src/redmine/plugins/
 
 COPY docker-entrypoint.sh /
 RUN chmod a+x /docker-entrypoint.sh
