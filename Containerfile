@@ -26,6 +26,7 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/wellbia/redmine_mic
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/redmica/redmica_ui_extension.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/onozaty/redmine-view-customize.git view_customize
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/alexbevi/redmine_knowledgebase.git 
 
 #RUN cd /usr/src/redmine/plugins;git clone https://github.com/haru/redmine_theme_changer.git
 
