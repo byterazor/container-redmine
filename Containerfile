@@ -35,6 +35,8 @@ RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/mrliptontea
 
 RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair
 
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/tantic/redmine_asap_theme.git 
+
 #RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/redmine_dark.git
 
 #RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/RTMaterial.git
