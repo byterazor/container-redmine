@@ -37,6 +37,8 @@ RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redm
 
 RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/tantic/redmine_asap_theme.git 
 
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/PlockGames/redmine-plock-theme.git
+
 #RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/redmine_dark.git
 
 #RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/RTMaterial.git
