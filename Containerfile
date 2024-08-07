@@ -29,9 +29,9 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/redmica/redmica_ui_
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/onozaty/redmine-view-customize.git view_customize
 
-#RUN cd /usr/src/redmine/plugins;git clone https://github.com/haru/redmine_theme_changer.git
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/haru/redmine_theme_changer.git
 
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/mrliptontea/PurpleMine2.git
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/mrliptontea/PurpleMine2.git
 
 RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair
 
