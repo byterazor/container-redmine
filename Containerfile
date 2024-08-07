@@ -39,21 +39,7 @@ RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/tantic/redm
 
 RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/PlockGames/redmine-plock-theme.git
 
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/redmine_dark.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/fraoustin/RTMaterial.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/jbbarth/redmine_theme_ministere.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/Intera/redmine_theme_intera.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/knt419/material.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/letuankhoipm/qkit-redmine-rezii.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/makotokw/redmine-theme-gitmike.git
-
-#RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc/redmine-theme-dwarf-build.git
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc/redmine-theme-dwarf-build.git
 
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine-git-remote.git redmine_git_remote
 
