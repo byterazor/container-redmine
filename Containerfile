@@ -41,6 +41,18 @@ RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/PlockGames/
 
 RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc/redmine-theme-dwarf-build.git
 
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/jbbarth/redmine_theme_ministere.git
+
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/tomy-shen/TW-Style.git
+
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/Intera/redmine_theme_intera.git; mv redmine_theme_intera/intera .; rm -rf redmine_theme_intera
+
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/knt419/material.git
+
+RUN cd /usr/src/redmine/public/themes/; git clone https://github.com/alexcode-cc/redmine-theme-minimalflat2-build.git
+
+
+
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine-git-remote.git redmine_git_remote
 
 RUN cd /usr/src/redmine/plugins;git clone https://gitea.federationhq.de/byterazor/redmine_glossary.git
