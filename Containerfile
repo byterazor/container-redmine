@@ -17,7 +17,7 @@ RUN apt-get -qy install unzip
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/mikitex70/redmine_drawio.git
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/alphanodes/redmine_messenger.git
 
-RUN cd /usr/src/redmine/plugins;wget https://redmine.ociotec.com/attachments/download/581/scrum-0.23.1.tar.gz; tar zxf scrum-0.23.1.tar.gz
+#RUN cd /usr/src/redmine/plugins;wget https://redmine.ociotec.com/attachments/download/581/scrum-0.23.1.tar.gz; tar zxf scrum-0.23.1.tar.gz
 
 #RUN cd /usr/src/redmine/plugins;git clone https://github.com/cryptogopher/issue_recurring.git
 
