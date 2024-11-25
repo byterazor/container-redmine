@@ -25,7 +25,7 @@ RUN cd /usr/src/redmine/plugins;git clone https://github.com/cat-in-136/redmine_
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/wellbia/redmine_microsoftteams.git redmine_microsoftteams
 
-RUN cd /usr/src/redmine/plugins;git clone https://github.com/redmica/redmica_ui_extension.git
+RUN cd /usr/src/redmine/plugins;git clone https://github.com/redmica/redmica_ui_extension.git; cd redmica_ui_extension; git checkout v0.3.10
 
 RUN cd /usr/src/redmine/plugins;git clone https://github.com/onozaty/redmine-view-customize.git view_customize
 
