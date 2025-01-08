@@ -105,32 +105,59 @@ local push_pipelines(versions, architectures) = [
             "build-"+arch
             for arch in architectures
         ],
-        steps: 
-            [
-                "scripts/setupEnvironment.sh",
-                "buildah manifest create redmine:"+version.tag,
+        steps:
+            [   
+                {
+                    name: "Push " + version.tag,
+                    image: "quay.io/buildah/stable",
+                    privileged: true,
+                    environment:
+                        {
+                            USERNAME: 
+                            {
+                                from_secret: "username"
+                            },
+                            PASSWORD:
+                            {
+                                from_secret: "password"
+                            }
+                        },
+                    volumes:
+                    [
+                        {
+                            name: "fedhq-ca-crt",
+                            path: "/etc/ssl/certs2/"
+
+                        }
+                    ],
+                    commands:
+                    [
+                        "scripts/setupEnvironment.sh",
+                        "buildah manifest create redmine:"+version.tag,
+                    ]
+                    +
+                    [
+                    "buildah manifest add redmine:" + version.tag + " registry.cloud.federationhq.de/redmine:"+version.tag + "-" + arch 
+                    for arch in architectures
+                    ]
+                    +
+                    [
+                        "buildah manifest push --all redmine:"+version.tag + " docker://registry.cloud.federationhq.de/redmine:"+tag
+                        for tag in [version.tag]+version.additional_tags
+                    ]
+                    +
+                    [
+                        "buildah login -u $${USERNAME} -p $${PASSWORD} registry.hub.docker.com",
+                    ]
+                    +
+                    [
+                        "buildah manifest push --all redmine:"+version.tag + " docker://registry.hub.docker.com/byterazor/redmine:"+tag
+                        for tag in [version.tag]+version.additional_tags
+                    ]
+                }
             ]
-            +
-            [
-            "buildah manifest add redmine:" + version.tag + " registry.cloud.federationhq.de/redmine:"+version.tag + "-" + arch 
-            for arch in architectures
-            ]
-            +
-            [
-                "buildah manifest push --all redmine:"+version.tag + " docker://registry.cloud.federationhq.de/redmine:"+tag
-                for tag in [version.tag]+version.additional_tags
-            ]
-            +
-            [
-                "buildah login -u $${USERNAME} -p $${PASSWORD} registry.hub.docker.com",
-            ]
-            +
-            [
-                "buildah manifest push --all redmine:"+version.tag + " docker://registry.hub.docker.com/byterazor/redmine:"+tag
-                for tag in [version.tag]+version.additional_tags
-            ],        
-     }
-     for version in versions
+        }
+        for version in versions
 ];
 
 local push_github = {
