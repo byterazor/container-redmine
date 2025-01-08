@@ -38,7 +38,7 @@ RUN svn co https://svn.redmine.org/redmine/tags/${REDMINE_TAG} /home/redmine/red
 WORKDIR /home/redmine/redmine/
 RUN echo 'gem "sidekiq", :require => true' >> Gemfile.local
 RUN echo 'gem "sqlite3", "~>1.7.0", :require => true' >> Gemfile.local
-RUN echo 'gem "mysql2", :require => true' >> Gemfile.local
+RUN echo 'gem "mysql2", "~> 0.5.0", :require => true' >> Gemfile.local
 RUN echo 'gem "pg", :require => true' >> Gemfile.local
 RUN echo 'gem "puma", :require => true' >> Gemfile.local
 
