@@ -163,7 +163,7 @@ local push_github = {
 };
 
 
-[
+
     build_pipelines(architectures) + push_pipelines(versions,architectures) + [push_github] +
     [
 {
@@ -191,4 +191,3 @@ local push_github = {
     }
 }
     ]
-]
