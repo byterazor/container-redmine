@@ -1,4 +1,4 @@
-FROM ruby:3.3-bookworm as builder
+FROM docker.io/ruby:3.3-bookworm as builder
 
 ARG REDMINE_TAG=6.0.2
 
@@ -91,7 +91,7 @@ RUN bundle config set --local without 'development test'
 RUN bundle config set --local path '/home/redmine/.local/share/gem'
 RUN bundle install 
 
-FROM ruby:3.3-bookworm
+FROM docker.io/ruby:3.3-bookworm
 
 RUN apt-get -qy update && apt-get -qy upgrade
 RUN apt-get -qy install libyaml-0-2 tini ghostscript
