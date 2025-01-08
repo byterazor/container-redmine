@@ -25,11 +25,13 @@ local build_steps(versions,arch) = [
         image: "quay.io/buildah/stable",
         privileged: true,
         volumes:
+        [
         {
             name: "fedhq-ca-crt",
             path: "/etc/ssl/certs2/"
 
-        },
+        }
+        ],
         commands: [
             "scripts/setupEnvironment.sh",
             "cd " + version.dir + ";" + 'buildah bud --network host -t "registry.cloud.federationhq.de/redmine:' +version.tag + "-" + arch + '" --arch ' + arch,
