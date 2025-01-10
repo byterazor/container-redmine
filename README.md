@@ -1,12 +1,28 @@
----
-lang: EN_US
----
 
 # Redmine Container Image
 
 ## Description
 
 This repository contains the Containerfile and associated scripts for a container image that runs [Redmine](https://www.redmine.org/).
+
+The 5.1 Container image, at the moment still available under the :latest tag, is deprecated and only basic updates for redmine and operating system will be provided
+as long as my own kubernetes cluster is running. 
+
+Future work will only go into the Version 6 Container Image.
+
+The new Container Image (all tags starting with 6) is **not** based on the original Redmine Docker Image anymore. 
+I created the Container file from scratch using the ruby:3.3-bookworm image as a base.
+
+The Design goals for the Image are:
+
+- no root user, everything runs under a non-root user (default to redmine user) 
+- root filesystem can be mounted read-only (in kubernetes environment)
+- reproduceable restarts (no updates during start of the container, except database migrations)
+- easy integration with sidekiq and redis
+
+
+
+
 
 This Container Image is at the moment based on the original [Redmine Dockerfile](https://hub.docker.com/_/redmine)
 

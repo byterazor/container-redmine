@@ -41,7 +41,7 @@ RUN echo 'gem "sqlite3", "~>1.7.0", :require => true' >> Gemfile.local
 RUN echo 'gem "mysql2", "~> 0.5.0", :require => true' >> Gemfile.local
 RUN echo 'gem "pg", :require => true' >> Gemfile.local
 RUN echo 'gem "puma", :require => true' >> Gemfile.local
-
+RUN echo 'gem "with_advisory_lock", :require => true' >> Gemfile.local
 RUN gem install  --user-install bundler
 
 #
@@ -90,6 +90,9 @@ RUN cd themes;git clone https://github.com/farend/redmine_theme_farend_bleuclair
 RUN bundle config set --local without 'development test'
 RUN bundle config set --local path '/home/redmine/.local/share/gem'
 RUN bundle install 
+
+# clean up all .git directories
+RUN find -name '.git' -exec rm -rf "{}" \; || true
 
 FROM docker.io/ruby:3.3-bookworm
 
