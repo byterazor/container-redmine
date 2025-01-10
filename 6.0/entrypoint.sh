@@ -63,8 +63,6 @@ elif [ "${DATABASE_ADAPTER}" == "mysql" ]; then
     echo -e " port: ${MYSQL_PORT}" >> config/database.yml
     echo -e " username: ${MYSQL_USER}" >> config/database.yml
     echo -e " password: ${MYSQL_PASSWORD}" >> config/database.yml
-    echo -e " variables:" >> config/database.yml
-    echo -e '  transaction_isolation: "READ-COMMITTED"' >> config/database.yml
 
 elif [ "${DATABASE_ADAPTER}" == "postgres" ]; then
 
