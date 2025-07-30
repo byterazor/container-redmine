@@ -20,6 +20,7 @@ ARG PLUGIN_COMMIT_redmine_percent_done="HEAD"
 ARG PLUGIN_COMMIT_redmine_documents_short="HEAD"
 ARG PLUGIN_COMMIT_vividtone_my_page_blocks="HEAD"
 ARG PLUGIN_COMMIT_kanban="HEAD"
+ARG PLUGIN_COMMIT_redmine_msteams_notification="HEAD"
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
 RUN apt-get -qy install build-essential 
@@ -78,6 +79,8 @@ RUN cd plugins;git clone https://github.com/smoreau/redmine_documents_short.git;
 RUN cd plugins;git clone https://github.com/vividtone/redmine_vividtone_my_page_blocks.git; cd redmine_vividtone_my_page_blocks; git checkout ${PLUGIN_COMMIT_vividtone_my_page_blocks}
 
 RUN cd plugins;git clone https://github.com/happy-se-life/kanban.git; cd kanban;  git checkout ${PLUGIN_COMMIT_kanban}
+
+RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notification.git;  git checkout ${PLUGIN_COMMIT_redmine_msteams_notification}
 
 #
 #
