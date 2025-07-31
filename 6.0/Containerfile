@@ -82,7 +82,7 @@ RUN cd plugins;git clone https://github.com/happy-se-life/kanban.git; cd kanban;
 
 RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notification.git; cd redmine_msteams_notification; git checkout ${PLUGIN_COMMIT_redmine_msteams_notification}
 
-RUN cd plugins;git clone https://github.com/nanego/redmine_preview_pdf.git; cd redmine_preview_pdf; git checkout ${PLUGIN_COMMIT_redmine_preview_pdf}
+#RUN cd plugins;git clone https://github.com/nanego/redmine_preview_pdf.git; cd redmine_preview_pdf; git checkout ${PLUGIN_COMMIT_redmine_preview_pdf}
 #
 #
 # Redmine themes
