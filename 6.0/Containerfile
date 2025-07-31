@@ -25,8 +25,7 @@ ARG PLUGIN_COMMIT_redmine_preview_pdf="HEAD"
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
 RUN apt-get -qy install build-essential 
-RUN apt-get -qy install libyaml-dev libmagick++-dev
-
+RUN apt-get -qy install libyaml-dev libmagick++-dev libmagic-dev
 RUN adduser -u 34342 --disabled-login redmine
 RUN mkdir -p /home/redmine && chown redmine:redmine /home/redmine
 
