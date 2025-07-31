@@ -1,4 +1,4 @@
-FROM docker.io/ruby:3.3-bookworm as builder
+FROM docker.io/ruby:3.4-bookworm as builder
 
 ARG REDMINE_TAG=6.0.2
 
@@ -101,7 +101,7 @@ RUN bundle install
 # clean up all .git directories
 RUN find -name '.git' -exec rm -rf "{}" \; || true
 
-FROM docker.io/ruby:3.3-bookworm
+FROM docker.io/ruby:3.4-bookworm
 
 RUN apt-get -qy update && apt-get -qy upgrade
 RUN apt-get -qy install libyaml-0-2 tini ghostscript imagemagick
