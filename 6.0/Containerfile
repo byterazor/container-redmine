@@ -1,6 +1,6 @@
 FROM docker.io/ruby:3.3-bookworm as builder
 
-ARG REDMINE_TAG=6.0.2
+ARG REDMINE_TAG=6.0.7
 
 ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="HEAD"
 ARG PLUGIN_COMMIT_redmine_dashboard="HEAD"
@@ -24,7 +24,7 @@ ARG PLUGIN_COMMIT_redmine_msteams_notification="HEAD"
 ARG PLUGIN_COMMIT_redmine_preview_pdf="HEAD"
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
-RUN apt-get -qy install build-essential 
+RUN apt-get -qy install build-essential
 RUN apt-get -qy install libyaml-dev libmagick++-dev libmagic-dev
 RUN adduser -u 34342 --disabled-login redmine
 RUN mkdir -p /home/redmine && chown redmine:redmine /home/redmine
@@ -33,7 +33,7 @@ RUN apt-get -qy install vim
 WORKDIR /home/redmine
 USER redmine
 
-ENV PATH="/home/redmine/.local/share/gem/ruby/3.3.0/bin:$PATH" 
+ENV PATH="/home/redmine/.local/share/gem/ruby/3.3.0/bin:$PATH"
 RUN svn co https://svn.redmine.org/redmine/tags/${REDMINE_TAG} /home/redmine/redmine
 
 WORKDIR /home/redmine/redmine/
@@ -47,7 +47,7 @@ RUN gem install  --user-install bundler
 RUN gem install  --user-install with_advisory_lock
 #
 #
-# redmine plugins 
+# redmine plugins
 RUN cd plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git;cd redmine_issue_dynamic_edit; git checkout ${PLUGIN_COMMIT_redmine_issue_dynamic_edit}
 
 RUN cd plugins;git clone https://github.com/jgraichen/redmine_dashboard.git; cd redmine_dashboard; git checkout ${PLUGIN_COMMIT_redmine_dashboard}
@@ -95,7 +95,7 @@ RUN cd themes;git clone https://github.com/farend/redmine_theme_farend_bleuclair
 
 RUN bundle config set --local without 'development test'
 RUN bundle config set --local path '/home/redmine/.local/share/gem'
-RUN bundle install 
+RUN bundle install
 
 # clean up all .git directories
 RUN find -name '.git' -exec rm -rf "{}" \; || true
@@ -114,7 +114,7 @@ RUN adduser -u 34342 --disabled-login redmine
 RUN chown -R redmine:redmine /home/redmine
 
 USER redmine
-ENV PATH="/home/redmine/.local/share/gem/ruby/3.3.0/bin:$PATH" 
+ENV PATH="/home/redmine/.local/share/gem/ruby/3.3.0/bin:$PATH"
 RUN bundle config set --local without 'development test'
 RUN bundle config set --local path '/home/redmine/.local/share/gem'
 
