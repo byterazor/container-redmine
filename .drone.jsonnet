@@ -3,7 +3,7 @@ local architectures = ["amd64","arm64"];
 local version_6_0_0 =
 {
     tag: "6.0.0",
-    additional_tags: ["6.0","6","stable"],
+    additional_tags: ["6.0"],
     dir: "6.0",
 
 };
