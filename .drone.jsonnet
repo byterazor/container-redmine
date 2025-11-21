@@ -1,6 +1,6 @@
 local architectures = ["amd64","arm64"];
 
-local version_6_0_0 = 
+local version_6_0_0 =
 {
     tag: "6.0.0",
     additional_tags: ["6.0","6","stable"],
@@ -8,15 +8,22 @@ local version_6_0_0 =
 
 };
 
-local version_5_1_0 = 
+local version_5_1_0 =
 {
     tag: "5.1.0",
     additional_tags: ["5","5.1","old-stable","latest"],
     dir: "5.1"
 };
 
+local version_6_1_0 =
+{
+    tag: "6.1.0",
+    additional_tags: ["6.1","6","stable"],
+    dir: "6.1",
 
-local versions = [version_6_0_0, version_5_1_0];
+};
+
+local versions = [version_6_1_0, version_6_0_0, version_5_1_0];
 
 
 local build_steps(versions,arch) = [
@@ -106,14 +113,14 @@ local push_pipelines(versions, architectures) = [
             for arch in architectures
         ],
         steps:
-            [   
+            [
                 {
                     name: "Push " + version.tag,
                     image: "quay.io/buildah/stable",
                     privileged: true,
                     environment:
                         {
-                            USERNAME: 
+                            USERNAME:
                             {
                                 from_secret: "username"
                             },
@@ -137,7 +144,7 @@ local push_pipelines(versions, architectures) = [
                     ]
                     +
                     [
-                    "buildah manifest add redmine:" + version.tag + " registry.cloud.federationhq.de/redmine:"+version.tag + "-" + arch 
+                    "buildah manifest add redmine:" + version.tag + " registry.cloud.federationhq.de/redmine:"+version.tag + "-" + arch
                     for arch in architectures
                     ]
                     +

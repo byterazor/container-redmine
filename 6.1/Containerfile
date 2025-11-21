@@ -1,0 +1,127 @@
+FROM docker.io/ruby:3.4-bookworm as builder
+
+ARG REDMINE_TAG=6.1.0
+
+ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="HEAD"
+ARG PLUGIN_COMMIT_redmine_dashboard="HEAD"
+ARG PLUGIN_COMMIT_redmine_wiki_extensions="HEAD"
+ARG PLUGIN_COMMIT_additionals="HEAD"
+ARG PLUGIN_COMMIT_additional_tags="HEAD"
+ARG PLUGIN_COMMIT_redmine_messenger="HEAD"
+ARG PLGUIN_COMMIT_redmine_drawio="HEAD"
+ARG PLUGIN_COMMIT_redmica_ui_extension="HEAD"
+ARG PLUGIN_COMMIT_redmine_view_customize="HEAD"
+ARG PLUGIN_COMMIT_redmine_privacy_terms="HEAD"
+ARG PLUGIN_COMMIT_redmine_ref_issues="HEAD"
+ARG PLUGIN_COMMIT_redmine_wiki_pathbase_acl="HEAD"
+ARG PLUGIN_COMMIT_redmine_startpage="HEAD"
+ARG PLUGIN_COMMIT_redmine_spent_time="HEAD"
+ARG PLUGIN_COMMIT_redmine_percent_done="HEAD"
+ARG PLUGIN_COMMIT_redmine_documents_short="HEAD"
+ARG PLUGIN_COMMIT_vividtone_my_page_blocks="HEAD"
+ARG PLUGIN_COMMIT_kanban="HEAD"
+ARG PLUGIN_COMMIT_redmine_msteams_notification="HEAD"
+ARG PLUGIN_COMMIT_redmine_preview_pdf="HEAD"
+
+RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
+RUN apt-get -qy install build-essential
+RUN apt-get -qy install libyaml-dev libmagick++-dev libmagic-dev
+RUN adduser -u 34342 --disabled-login redmine
+RUN mkdir -p /home/redmine && chown redmine:redmine /home/redmine
+
+RUN apt-get -qy install vim
+WORKDIR /home/redmine
+USER redmine
+
+ENV PATH="/home/redmine/.local/share/gem/ruby/3.4.0/bin:$PATH"
+RUN svn co https://svn.redmine.org/redmine/tags/${REDMINE_TAG} /home/redmine/redmine
+
+WORKDIR /home/redmine/redmine/
+RUN echo 'gem "sidekiq", :require => true' >> Gemfile.local
+RUN echo 'gem "sqlite3", "~>2.5.0", :require => true' >> Gemfile.local
+RUN echo 'gem "mysql2", "~> 0.5.0", :require => true' >> Gemfile.local
+RUN echo 'gem "pg", :require => true' >> Gemfile.local
+RUN echo 'gem "puma", :require => true' >> Gemfile.local
+RUN echo 'gem "with_advisory_lock", :require => true' >> Gemfile.local
+RUN gem install  --user-install bundler
+RUN gem install  --user-install with_advisory_lock
+#
+#
+# redmine plugins
+RUN cd plugins;git clone https://github.com/Ilogeek/redmine_issue_dynamic_edit.git;cd redmine_issue_dynamic_edit; git checkout ${PLUGIN_COMMIT_redmine_issue_dynamic_edit}
+
+RUN cd plugins;git clone https://github.com/jgraichen/redmine_dashboard.git; cd redmine_dashboard; git checkout ${PLUGIN_COMMIT_redmine_dashboard}
+
+RUN cd plugins;git clone https://github.com/haru/redmine_wiki_extensions.git; cd redmine_wiki_extensions; git checkout ${PLUGIN_COMMIT_redmine_wiki_extensions}
+
+RUN cd plugins;git clone https://www.github.com/alphanodes/additionals.git;cd additionals;git checkout ${PLUGIN_COMMIT_additionals}
+RUN cd plugins;git clone https://www.github.com/alphanodes/additional_tags.git;cd additional_tags; git checkout ${PLUGIN_COMMIT_additional_tags}
+RUN cd plugins;git clone https://github.com/alphanodes/redmine_messenger.git; cd redmine_messenger; git checkout ${PLUGIN_COMMIT_redmine_messenger}
+RUN cd plugins;git clone https://github.com/alphanodes/redmine_privacy_terms.git; cd redmine_privacy_terms; git checkout ${PLUGIN_COMMIT_redmine_privacy_terms}
+RUN cd plugins;git clone https://github.com/alphanodes/redmine_ref_issues.git; cd redmine_ref_issues; git checkout ${PLUGIN_COMMIT_redmine_ref_issues}
+
+RUN cd plugins;git clone https://github.com/mikitex70/redmine_drawio.git; cd redmine_drawio; git checkout ${PLGUIN_COMMIT_redmine_drawio}
+
+RUN cd plugins;git clone https://github.com/redmica/redmica_ui_extension.git; cd redmica_ui_extension; git checkout ${PLUGIN_COMMIT_redmica_ui_extension}
+
+RUN cd plugins;git clone https://github.com/onozaty/redmine-view-customize.git view_customize; cd view_customize; git checkout ${PLUGIN_COMMIT_redmine_view_customize}
+
+RUN cd plugins;git clone https://github.com/9506hqwy/redmine_wiki_pathbase_acl.git; cd redmine_wiki_pathbase_acl; git checkout ${PLUGIN_COMMIT_redmine_wiki_pathbase_acl}
+
+RUN cd plugins;git clone https://github.com/Intera/redmine_startpage.git; cd redmine_startpage; git checkout ${PLUGIN_COMMIT_redmine_startpage}
+
+RUN cd plugins;git clone https://github.com/eyp/redmine_spent_time.git; cd redmine_spent_time; git checkout ${PLUGIN_COMMIT_redmine_spent_time}
+
+RUN cd plugins;git clone https://github.com/jkraemer/redmine_percent_done.git; cd redmine_percent_done; git checkout ${PLUGIN_COMMIT_redmine_percent_done}
+
+RUN cd plugins;git clone https://github.com/smoreau/redmine_documents_short.git; cd redmine_documents_short; git checkout ${PLUGIN_COMMIT_redmine_documents_short}
+
+RUN cd plugins;git clone https://github.com/vividtone/redmine_vividtone_my_page_blocks.git; cd redmine_vividtone_my_page_blocks; git checkout ${PLUGIN_COMMIT_vividtone_my_page_blocks}
+
+RUN cd plugins;git clone https://github.com/happy-se-life/kanban.git; cd kanban;  git checkout ${PLUGIN_COMMIT_kanban}
+
+RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notification.git; cd redmine_msteams_notification; git checkout ${PLUGIN_COMMIT_redmine_msteams_notification}
+
+RUN cd plugins;git clone https://github.com/aouaiti/redmine_Budget_tn.git redmine_budget_tn
+
+#RUN cd plugins;git clone https://github.com/nanego/redmine_preview_pdf.git; cd redmine_preview_pdf; git checkout ${PLUGIN_COMMIT_redmine_preview_pdf}
+#
+#
+# Redmine themes
+#
+RUN cd themes;git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair; cd bleuclair; git checkout ${THEME_COMMIT_redmine_theme_farend_bleuclair}
+
+#
+# setting everything up
+#
+
+RUN bundle config set --local without 'development test'
+RUN bundle config set --local path '/home/redmine/.local/share/gem'
+RUN bundle install
+
+# clean up all .git directories
+RUN find -name '.git' -exec rm -rf "{}" \; || true
+
+FROM docker.io/ruby:3.4-bookworm
+
+RUN apt-get -qy update && apt-get -qy upgrade
+RUN apt-get -qy install libyaml-0-2 tini ghostscript imagemagick
+
+COPY --from=builder /home/redmine /home/redmine
+COPY --from=builder /usr/local /usr/local
+ADD entrypoint.sh /
+RUN chmod a+x /entrypoint.sh
+
+RUN adduser -u 34342 --disabled-login redmine
+RUN chown -R redmine:redmine /home/redmine
+
+USER redmine
+ENV PATH="/home/redmine/.local/share/gem/ruby/3.4.0/bin:$PATH"
+RUN bundle config set --local without 'development test'
+RUN bundle config set --local path '/home/redmine/.local/share/gem'
+
+WORKDIR /home/redmine/redmine
+
+
+
+ENTRYPOINT ["/usr/bin/tini", "--", "/entrypoint.sh"]
