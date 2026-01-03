@@ -45,6 +45,7 @@ RUN echo 'gem "puma", :require => true' >> Gemfile.local
 RUN echo 'gem "with_advisory_lock", :require => true' >> Gemfile.local
 RUN echo 'gem "redmineup", :require => true' >> Gemfile.local 
 RUN echo 'gem "vcard", :require => true' >> Gemfile.local 
+RUN echo 'gem "wicked_pdf", :require => true' >> Gemfile.local
 RUN gem install  --user-install bundler
 RUN gem install  --user-install with_advisory_lock
 #
