@@ -15,15 +15,15 @@ local version_5_1_0 =
     dir: "5.1"
 };
 
-local version_6_1_0 =
+local version_6_1_2 =
 {
-    tag: "6.1.0",
+    tag: "6.1.2",
     additional_tags: ["6.1","6","stable"],
     dir: "6.1",
 
 };
 
-local versions = [version_6_1_0, version_6_0_0, version_5_1_0];
+local versions = [version_6_1_2, version_6_0_0, version_5_1_0];
 
 
 local build_steps(versions,arch) = [
