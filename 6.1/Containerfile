@@ -1,6 +1,6 @@
 FROM docker.io/ruby:3.4-bookworm as builder
 
-ARG REDMINE_TAG=6.1.0
+ARG REDMINE_TAG=6.1.2
 
 ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="HEAD"
 ARG PLUGIN_COMMIT_redmine_dashboard="HEAD"
@@ -43,7 +43,7 @@ RUN echo 'gem "mysql2", "~> 0.5.0", :require => true' >> Gemfile.local
 RUN echo 'gem "pg", :require => true' >> Gemfile.local
 RUN echo 'gem "puma", :require => true' >> Gemfile.local
 RUN echo 'gem "with_advisory_lock", :require => true' >> Gemfile.local
-RUN echo 'gem "redmineup", :require => true' >> Gemfile.local
+RUN echo 'gem "redmineup", "1.1.2", :require => true' >> Gemfile.local
 RUN echo 'gem "vcard", :require => true' >> Gemfile.local
 RUN echo 'gem "wicked_pdf","~>  1.1.0", :require => true' >> Gemfile.local
 RUN gem install  --user-install bundler
