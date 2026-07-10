@@ -75,7 +75,7 @@ RUN cd plugins;git clone https://github.com/9506hqwy/redmine_wiki_pathbase_acl.g
 
 RUN cd plugins;git clone https://github.com/Intera/redmine_startpage.git; cd redmine_startpage; git checkout ${PLUGIN_COMMIT_redmine_startpage}
 
-RUN cd plugins;git clone https://github.com/eyp/redmine_spent_time.git; cd redmine_spent_time; git checkout ${PLUGIN_COMMIT_redmine_spent_time}
+#RUN cd plugins;git clone https://github.com/eyp/redmine_spent_time.git; cd redmine_spent_time; git checkout ${PLUGIN_COMMIT_redmine_spent_time}
 
 RUN cd plugins;git clone https://github.com/jkraemer/redmine_percent_done.git; cd redmine_percent_done; git checkout ${PLUGIN_COMMIT_redmine_percent_done}
 
