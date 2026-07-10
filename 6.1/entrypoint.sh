@@ -2,7 +2,7 @@
 
 echo "Starting redmine ..."
 
-export PATH="/home/redmine/.local/share/gem/ruby/3.3.0/bin:$PATH" 
+export PATH="/home/redmine/.local/share/gem/ruby/3.4.0/bin:$PATH"
 export GEM_HOME="/home/redmine/.local/share/gem"
 
 bundle config set --local without 'development test'
