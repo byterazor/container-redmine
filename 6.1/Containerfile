@@ -1,6 +1,6 @@
 FROM docker.io/ruby:3.4-bookworm as builder
 
-ARG REDMINE_TAG=6.1.2
+ARG REDMINE_TAG=6.1.3
 
 ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="56ad17d06583fbb7e51c096ad3d0bf8c8378195c"
 ARG PLUGIN_COMMIT_redmine_dashboard="v2.16.0"
