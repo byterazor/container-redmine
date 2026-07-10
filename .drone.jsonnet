@@ -31,7 +31,7 @@ local version_7_0_0 =
 
 };
 
-local versions = [version_7_0_0, version_6_1_2, version_6_0_0, version_5_1_0];
+local versions = [version_6_1_2, version_6_0_0, version_5_1_0];
 
 
 local build_steps(versions,arch) = [
