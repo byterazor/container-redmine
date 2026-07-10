@@ -2,26 +2,28 @@ FROM docker.io/ruby:3.4-bookworm as builder
 
 ARG REDMINE_TAG=6.1.2
 
-ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="HEAD"
-ARG PLUGIN_COMMIT_redmine_dashboard="HEAD"
-ARG PLUGIN_COMMIT_redmine_wiki_extensions="HEAD"
-ARG PLUGIN_COMMIT_additionals="HEAD"
-ARG PLUGIN_COMMIT_additional_tags="HEAD"
-ARG PLUGIN_COMMIT_redmine_messenger="HEAD"
-ARG PLGUIN_COMMIT_redmine_drawio="HEAD"
-ARG PLUGIN_COMMIT_redmica_ui_extension="HEAD"
-ARG PLUGIN_COMMIT_redmine_view_customize="HEAD"
-ARG PLUGIN_COMMIT_redmine_privacy_terms="HEAD"
-ARG PLUGIN_COMMIT_redmine_ref_issues="HEAD"
-ARG PLUGIN_COMMIT_redmine_wiki_pathbase_acl="HEAD"
-ARG PLUGIN_COMMIT_redmine_startpage="HEAD"
-ARG PLUGIN_COMMIT_redmine_spent_time="HEAD"
-ARG PLUGIN_COMMIT_redmine_percent_done="HEAD"
-ARG PLUGIN_COMMIT_redmine_documents_short="HEAD"
-ARG PLUGIN_COMMIT_vividtone_my_page_blocks="HEAD"
-ARG PLUGIN_COMMIT_kanban="HEAD"
-ARG PLUGIN_COMMIT_redmine_msteams_notification="HEAD"
+ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="56ad17d06583fbb7e51c096ad3d0bf8c8378195c"
+ARG PLUGIN_COMMIT_redmine_dashboard="v2.16.0"
+ARG PLUGIN_COMMIT_redmine_wiki_extensions="1.2.0"
+ARG PLUGIN_COMMIT_additionals="4.5.0"
+ARG PLUGIN_COMMIT_additional_tags="4.5.0"
+ARG PLUGIN_COMMIT_redmine_messenger="1.0.14"
+ARG PLUGIN_COMMIT_redmine_drawio="v1.5.5"
+ARG PLUGIN_COMMIT_redmica_ui_extension="v0.6.0"
+ARG PLUGIN_COMMIT_redmine_view_customize="v3.6.0"
+ARG PLUGIN_COMMIT_redmine_privacy_terms="1.0.4"
+ARG PLUGIN_COMMIT_redmine_ref_issues="1.0.3"
+ARG PLUGIN_COMMIT_redmine_wiki_pathbase_acl="fbebf71ad3efa5f3e2f6032cc602e14f4613eedb"
+ARG PLUGIN_COMMIT_redmine_startpage="dd5394115f10e6518b83ab6062a924aba6f47e38"
+ARG PLUGIN_COMMIT_redmine_spent_time="v2.5.0"
+ARG PLUGIN_COMMIT_redmine_percent_done="e2ed5e6af18a5b116a2f2222fc346a34c18b06df"
+ARG PLUGIN_COMMIT_redmine_documents_short="860912aedf7c0b732b4b58507196205b570bd929"
+ARG PLUGIN_COMMIT_vividtone_my_page_blocks="v1.4.1"
+ARG PLUGIN_COMMIT_kanban="1b1ac1eaa1821b319213b728812402370ae5549f"
+ARG PLUGIN_COMMIT_redmine_msteams_notification="0.7.0"
 ARG PLUGIN_COMMIT_redmine_preview_pdf="HEAD"
+ARG PLUGIN_COMMIT_redmine_budget_tn="0212de8311142132d58595a350e1899a07dbce3c"
+ARG THEME_COMMIT_redmine_theme_farend_bleuclair="v2.0.3"
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
 RUN apt-get -qy install build-essential
@@ -63,7 +65,7 @@ RUN cd plugins;git clone https://github.com/alphanodes/redmine_messenger.git; cd
 RUN cd plugins;git clone https://github.com/alphanodes/redmine_privacy_terms.git; cd redmine_privacy_terms; git checkout ${PLUGIN_COMMIT_redmine_privacy_terms}
 RUN cd plugins;git clone https://github.com/alphanodes/redmine_ref_issues.git; cd redmine_ref_issues; git checkout ${PLUGIN_COMMIT_redmine_ref_issues}
 
-RUN cd plugins;git clone https://github.com/mikitex70/redmine_drawio.git; cd redmine_drawio; git checkout ${PLGUIN_COMMIT_redmine_drawio}
+RUN cd plugins;git clone https://github.com/mikitex70/redmine_drawio.git; cd redmine_drawio; git checkout ${PLUGIN_COMMIT_redmine_drawio}
 
 RUN cd plugins;git clone https://github.com/redmica/redmica_ui_extension.git; cd redmica_ui_extension; git checkout ${PLUGIN_COMMIT_redmica_ui_extension}
 
@@ -85,7 +87,7 @@ RUN cd plugins;git clone https://github.com/happy-se-life/kanban.git; cd kanban;
 
 RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notification.git; cd redmine_msteams_notification; git checkout ${PLUGIN_COMMIT_redmine_msteams_notification}
 
-RUN cd plugins;git clone https://github.com/aouaiti/redmine_Budget_tn.git redmine_budget_tn
+RUN cd plugins;git clone https://github.com/aouaiti/redmine_Budget_tn.git redmine_budget_tn; cd redmine_budget_tn; git checkout ${PLUGIN_COMMIT_redmine_budget_tn}
 
 #RUN cd plugins;git clone https://github.com/nanego/redmine_preview_pdf.git; cd redmine_preview_pdf; git checkout ${PLUGIN_COMMIT_redmine_preview_pdf}
 #
