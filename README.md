@@ -45,7 +45,7 @@ Both 6.0 and 6.1 images include the same set of plugins, but with different vers
 | [redmine_ref_issues](https://github.com/alphanodes/redmine_ref_issues) | `0.0.9` | `1.0.3` |
 | [redmine_wiki_pathbase_acl](https://github.com/9506hqwy/redmine_wiki_pathbase_acl) | `fbebf71a` | `fbebf71a` |
 | [redmine_startpage](https://github.com/Intera/redmine_startpage) | `dd539411` | `dd539411` |
-| [redmine_spent_time](https://github.com/eyp/redmine_spent_time) | `v2.5.0` | `v2.5.0` |
+| [redmine_spent_time](https://github.com/eyp/redmine_spent_time) | `cdd3d078` | `cdd3d078` |
 | [redmine_percent_done](https://github.com/jkraemer/redmine_percent_done) | `v1.1.0` | `e2ed5e6a` |
 | [redmine_documents_short](https://github.com/smoreau/redmine_documents_short) | `860912ae` | `860912ae` |
 | [redmine_vividtone_my_page_blocks](https://github.com/redmica/redmine_vividtone_my_page_blocks) | `v1.4.1` | `v1.4.1` |
