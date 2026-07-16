@@ -52,6 +52,7 @@ Both 6.0 and 6.1 images include the same set of plugins, but with different vers
 | [kanban](https://github.com/happy-se-life/kanban) | `HEAD` | `1b1ac1ea` |
 | [redmine_msteams_notification](https://github.com/9506hqwy/redmine_msteams_notification) | `0.7.0` | `0.7.0` |
 | [redmine_budget_tn](https://github.com/aouaiti/redmine_Budget_tn) | `0212de83` | `0212de83` |
+| [redmine_periodic_task](https://github.com/jperelli/Redmine-Periodic-Task) | | `v6.2.0` |
 
 ### Theme
 

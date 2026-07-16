@@ -23,6 +23,7 @@ ARG PLUGIN_COMMIT_kanban="1b1ac1eaa1821b319213b728812402370ae5549f"
 ARG PLUGIN_COMMIT_redmine_msteams_notification="0.7.0"
 ARG PLUGIN_COMMIT_redmine_preview_pdf="HEAD"
 ARG PLUGIN_COMMIT_redmine_budget_tn="0212de8311142132d58595a350e1899a07dbce3c"
+ARG PLUGIN_COMMIT_redmine_periodic_task="v6.2.0"
 ARG THEME_COMMIT_redmine_theme_farend_bleuclair="v2.0.3"
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
@@ -88,6 +89,8 @@ RUN cd plugins;git clone https://github.com/happy-se-life/kanban.git; cd kanban;
 RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notification.git; cd redmine_msteams_notification; git checkout ${PLUGIN_COMMIT_redmine_msteams_notification}
 
 RUN cd plugins;git clone https://github.com/aouaiti/redmine_Budget_tn.git redmine_budget_tn; cd redmine_budget_tn; git checkout ${PLUGIN_COMMIT_redmine_budget_tn}
+
+RUN cd plugins;git clone https://github.com/jperelli/Redmine-Periodic-Task.git periodictask; cd periodictask; git checkout ${PLUGIN_COMMIT_redmine_periodic_task}
 
 #RUN cd plugins;git clone https://github.com/nanego/redmine_preview_pdf.git; cd redmine_preview_pdf; git checkout ${PLUGIN_COMMIT_redmine_preview_pdf}
 #
