@@ -13,7 +13,7 @@ ARG PLUGIN_COMMIT_redmica_ui_extension="v0.3.10"
 ARG PLUGIN_COMMIT_redmine_view_customize="v3.6.0"
 ARG PLUGIN_COMMIT_redmine_privacy_terms="1.0.2"
 ARG PLUGIN_COMMIT_redmine_ref_issues="0.0.9"
-ARG PLUGIN_COMMIT_redmine_wiki_pathbase_acl="fbebf71ad3efa5f3e2f6032cc602e14f4613eedb"
+ARG PLUGIN_COMMIT_ws_redmine_wiki_acl="9d6cf0d52e23ecd7ac00eacf9019e96de690ddfb"
 ARG PLUGIN_COMMIT_redmine_startpage="dd5394115f10e6518b83ab6062a924aba6f47e38"
 ARG PLUGIN_COMMIT_redmine_spent_time="cdd3d07815c88e362a199c2d49147f77850a8ceb"
 ARG PLUGIN_COMMIT_redmine_percent_done="v1.1.0"
@@ -67,7 +67,7 @@ RUN cd plugins;git clone https://github.com/redmica/redmica_ui_extension.git; cd
 
 RUN cd plugins;git clone https://github.com/onozaty/redmine-view-customize.git view_customize; cd view_customize; git checkout ${PLUGIN_COMMIT_redmine_view_customize}
 
-RUN cd plugins;git clone https://github.com/9506hqwy/redmine_wiki_pathbase_acl.git; cd redmine_wiki_pathbase_acl; git checkout ${PLUGIN_COMMIT_redmine_wiki_pathbase_acl}
+RUN cd plugins;git clone https://github.com/wsagency/ws-redmine-wiki-acl.git redmine_wiki_acl; cd redmine_wiki_acl; git checkout ${PLUGIN_COMMIT_ws_redmine_wiki_acl}
 
 RUN cd plugins;git clone https://github.com/Intera/redmine_startpage.git; cd redmine_startpage; git checkout ${PLUGIN_COMMIT_redmine_startpage}
 
