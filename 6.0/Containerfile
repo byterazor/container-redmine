@@ -19,11 +19,19 @@ ARG PLUGIN_COMMIT_redmine_startpage="dd5394115f10e6518b83ab6062a924aba6f47e38"
 ARG PLUGIN_COMMIT_redmine_spent_time="cdd3d07815c88e362a199c2d49147f77850a8ceb"
 ARG PLUGIN_COMMIT_redmine_percent_done="v1.1.0"
 ARG PLUGIN_COMMIT_redmine_documents_short="860912aedf7c0b732b4b58507196205b570bd929"
-ARG PLUGIN_COMMIT_vividtone_my_page_blocks="v1.4.1"
+ARG PLUGIN_COMMIT_redmine_vividtone_my_page_blocks="v1.4.1"
+ARG PLUGIN_COMMIT_redmine_user_specific_theme="6.x"
 ARG PLUGIN_COMMIT_kanban="HEAD"
 ARG PLUGIN_COMMIT_redmine_msteams_notification="0.7.0"
 ARG PLUGIN_COMMIT_redmine_preview_pdf="63d2b870b0942565ee66e49781dee32959f687ab"
 ARG THEME_COMMIT_redmine_theme_farend_bleuclair="HEAD"
+ARG THEME_COMMIT_opale="1.7.1"
+ARG THEME_COMMIT_redmine_asap_theme="v2.4.1"
+ARG THEME_COMMIT_redmine_engineering_ledger="b0ef2aed25c393b0afff4ffb78b2fba8dd77b07e"
+ARG THEME_COMMIT_sidebar_white="v2.1"
+ARG THEME_COMMIT_redmine_modern_theme="3b18e8c03bd056c7da01c86650be1d330ee646ab"
+ARG THEME_COMMIT_ws_redmine_theme="2de4ab97280e81fc710265580c649f6c2c717962"
+ARG THEME_COMMIT_redmine_jira_theme="22391ec9464b90c64f45953e2a4b3e85d64373f5"
 
 RUN apt-get -qy update && apt-get -qy upgrade && apt-get -qy install git subversion
 RUN apt-get -qy install build-essential
@@ -80,7 +88,9 @@ RUN cd plugins;git clone https://github.com/jkraemer/redmine_percent_done.git; c
 
 RUN cd plugins;git clone https://github.com/smoreau/redmine_documents_short.git; cd redmine_documents_short; git checkout ${PLUGIN_COMMIT_redmine_documents_short}
 
-RUN cd plugins;git clone https://github.com/redmica/redmine_vividtone_my_page_blocks.git; cd redmine_vividtone_my_page_blocks; git checkout ${PLUGIN_COMMIT_vividtone_my_page_blocks}
+RUN cd plugins;git clone https://github.com/redmica/redmine_vividtone_my_page_blocks.git; cd redmine_vividtone_my_page_blocks; git checkout ${PLUGIN_COMMIT_redmine_vividtone_my_page_blocks}
+
+RUN cd plugins;git clone https://github.com/Barto-Paja/redmine_user_specific_theme.git; cd redmine_user_specific_theme; git checkout ${PLUGIN_COMMIT_redmine_user_specific_theme}
 
 RUN cd plugins;git clone https://github.com/happy-se-life/kanban.git; cd kanban;  git checkout ${PLUGIN_COMMIT_kanban}
 
@@ -92,6 +102,20 @@ RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notificatio
 # Redmine themes
 #
 RUN cd themes;git clone https://github.com/farend/redmine_theme_farend_bleuclair.git bleuclair; cd bleuclair; git checkout ${THEME_COMMIT_redmine_theme_farend_bleuclair}
+
+RUN cd themes;git clone https://github.com/gagnieray/opale.git opale; cd opale; git checkout ${THEME_COMMIT_opale}
+
+RUN cd themes;git clone https://github.com/tantic/redmine_asap_theme.git asap_theme; cd asap_theme; git checkout ${THEME_COMMIT_redmine_asap_theme}
+
+RUN cd themes;git clone https://github.com/io7/redmine-engineering-ledger.git engineering_ledger; cd engineering_ledger; git checkout ${THEME_COMMIT_redmine_engineering_ledger}
+
+RUN cd themes;git clone https://github.com/adhi-software/sidebar-white.git sidebar_white; cd sidebar_white; git checkout ${THEME_COMMIT_sidebar_white}
+
+RUN cd themes;git clone https://github.com/acosonic/redmine-modern-theme.git redmine_modern_theme; cd redmine_modern_theme; git checkout ${THEME_COMMIT_redmine_modern_theme}
+
+RUN cd themes;git clone https://github.com/wsagency/ws-redmine-theme.git ws_redmine_theme; cd ws_redmine_theme; git checkout ${THEME_COMMIT_ws_redmine_theme}
+
+RUN cd themes;git clone https://github.com/sivamca19/redmine_jira_theme.git redmine_jira_theme; cd redmine_jira_theme; git checkout ${THEME_COMMIT_redmine_jira_theme}
 
 #
 # setting everything up

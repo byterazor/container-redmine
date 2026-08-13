@@ -50,6 +50,7 @@ Both 6.0 and 6.1 images include the same set of plugins, but with different vers
 | [redmine_percent_done](https://github.com/jkraemer/redmine_percent_done) | `v1.1.0` | `e2ed5e6a` |
 | [redmine_documents_short](https://github.com/smoreau/redmine_documents_short) | `860912ae` | `860912ae` |
 | [redmine_vividtone_my_page_blocks](https://github.com/redmica/redmine_vividtone_my_page_blocks) | `v1.4.1` | `v1.4.1` |
+| [redmine_user_specific_theme](https://github.com/Barto-Paja/redmine_user_specific_theme) | `6.x` | `6.x` |
 | [kanban](https://github.com/happy-se-life/kanban) | `HEAD` | `1b1ac1ea` |
 | [redmine_msteams_notification](https://github.com/9506hqwy/redmine_msteams_notification) | `0.7.0` | `0.7.0` |
 | [redmine_budget_tn](https://github.com/aouaiti/redmine_Budget_tn) | `0212de83` | `0212de83` |
@@ -60,6 +61,13 @@ Both 6.0 and 6.1 images include the same set of plugins, but with different vers
 | Theme | 6.0 Version | 6.1 Version |
 |-------|-------------|-------------|
 | [redmine_theme_farend_bleuclair](https://github.com/farend/redmine_theme_farend_bleuclair) | `HEAD` | `v2.0.3` |
+| [opale](https://github.com/gagnieray/opale) | `1.7.1` | `1.7.1` |
+| [redmine_asap_theme](https://github.com/tantic/redmine_asap_theme) | `v2.4.1` | `v2.4.1` |
+| [redmine_engineering_ledger](https://github.com/io7/redmine-engineering-ledger) | `b0ef2aed` | `b0ef2aed` |
+| [sidebar-white](https://github.com/adhi-software/sidebar-white) | `v2.1` | `v2.1` |
+| [redmine-modern-theme](https://github.com/acosonic/redmine-modern-theme) | `3b18e8c0` | `3b18e8c0` |
+| [ws_redmine_theme](https://github.com/wsagency/ws-redmine-theme) | `2de4ab97` | `2de4ab97` |
+| [redmine_jira_theme](https://github.com/sivamca19/redmine_jira_theme) | `22391ec9` | `22391ec9` |
 
 ### Version Notes
 
