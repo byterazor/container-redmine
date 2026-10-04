@@ -69,10 +69,10 @@ RUN cd plugins;git clone https://github.com/jgraichen/redmine_dashboard.git; cd 
 
 RUN cd plugins;git clone https://github.com/haru/redmine_wiki_extensions.git; cd redmine_wiki_extensions; git checkout ${PLUGIN_COMMIT_redmine_wiki_extensions}
 
-#RUN cd plugins;git clone https://www.github.com/alphanodes/additionals.git;cd additionals;git checkout ${PLUGIN_COMMIT_additionals}
-#RUN cd plugins;git clone https://www.github.com/alphanodes/additional_tags.git;cd additional_tags; git checkout ${PLUGIN_COMMIT_additional_tags}
+RUN cd plugins;git clone https://www.github.com/alphanodes/additionals.git;cd additionals;git checkout ${PLUGIN_COMMIT_additionals}
+RUN cd plugins;git clone https://www.github.com/alphanodes/additional_tags.git;cd additional_tags; git checkout ${PLUGIN_COMMIT_additional_tags}
 RUN cd plugins;git clone https://github.com/alphanodes/redmine_messenger.git; cd redmine_messenger; git checkout ${PLUGIN_COMMIT_redmine_messenger}
-#RUN cd plugins;git clone https://github.com/alphanodes/redmine_privacy_terms.git; cd redmine_privacy_terms; git checkout ${PLUGIN_COMMIT_redmine_privacy_terms}
+RUN cd plugins;git clone https://github.com/alphanodes/redmine_privacy_terms.git; cd redmine_privacy_terms; git checkout ${PLUGIN_COMMIT_redmine_privacy_terms}
 RUN cd plugins;git clone https://github.com/alphanodes/redmine_ref_issues.git; cd redmine_ref_issues; git checkout ${PLUGIN_COMMIT_redmine_ref_issues}
 
 RUN cd plugins;git clone https://github.com/mikitex70/redmine_drawio.git; cd redmine_drawio; git checkout ${PLUGIN_COMMIT_redmine_drawio}
