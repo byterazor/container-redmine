@@ -1,6 +1,6 @@
 FROM docker.io/ruby:4.0-trixie as builder
 
-ARG REDMINE_TAG=7.0.0
+ARG REDMINE_TAG=7.0.2
 
 ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="HEAD"
 ARG PLUGIN_COMMIT_redmine_dashboard="HEAD"

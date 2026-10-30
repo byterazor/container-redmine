@@ -1,6 +1,6 @@
 FROM docker.io/ruby:3.4-bookworm as builder
 
-ARG REDMINE_TAG=6.1.3
+ARG REDMINE_TAG=6.1.5
 
 ARG PLUGIN_COMMIT_redmine_issue_dynamic_edit="56ad17d06583fbb7e51c096ad3d0bf8c8378195c"
 ARG PLUGIN_COMMIT_redmine_dashboard="v2.16.0"
@@ -26,6 +26,7 @@ ARG PLUGIN_COMMIT_redmine_msteams_notification="0.7.0"
 ARG PLUGIN_COMMIT_redmine_preview_pdf="HEAD"
 ARG PLUGIN_COMMIT_redmine_budget_tn="0212de8311142132d58595a350e1899a07dbce3c"
 ARG PLUGIN_COMMIT_redmine_periodic_task="v6.2.0"
+ARG PLUGIN_COMMIT_redmine_extended_api="0.0.5"
 ARG THEME_COMMIT_redmine_theme_farend_bleuclair="v2.0.3"
 ARG THEME_COMMIT_opale="1.7.1"
 ARG THEME_COMMIT_redmine_asap_theme="v2.4.1"
@@ -104,6 +105,8 @@ RUN cd plugins;git clone https://github.com/9506hqwy/redmine_msteams_notificatio
 RUN cd plugins;git clone https://github.com/aouaiti/redmine_Budget_tn.git redmine_budget_tn; cd redmine_budget_tn; git checkout ${PLUGIN_COMMIT_redmine_budget_tn}
 
 RUN cd plugins;git clone https://github.com/jperelli/Redmine-Periodic-Task.git periodictask; cd periodictask; git checkout ${PLUGIN_COMMIT_redmine_periodic_task}
+
+RUN cd plugins;git clone https://github.com/jcatrysse/redmine_extended_api.git; cd redmine_extended_api; git checkout ${PLUGIN_COMMIT_redmine_extended_api}
 
 #RUN cd plugins;git clone https://github.com/nanego/redmine_preview_pdf.git; cd redmine_preview_pdf; git checkout ${PLUGIN_COMMIT_redmine_preview_pdf}
 #
